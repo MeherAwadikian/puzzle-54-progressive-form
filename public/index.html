@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forge Studio - Start a project</title>
+  <meta name="description" content="A progressive-disclosure intake form: one question at a time." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="card" role="main">
+    <header class="card-head">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span class="brand-name">Forge Studio</span>
+      </div>
+
+      <!-- Progress indication -->
+      <div class="progress" aria-hidden="true">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <p class="step-count" id="stepCount" aria-live="polite">Step 1 of 6</p>
+    </header>
+
+    <!-- The single live question renders here, one at a time. -->
+    <form id="stepForm" novalidate>
+      <div class="step" id="stepBody">
+        <!-- injected by app.js -->
+      </div>
+
+      <p class="field-error" id="fieldError" role="alert" aria-live="assertive"></p>
+
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="backBtn">Back</button>
+        <button type="submit" class="btn btn-primary" id="nextBtn">Next</button>
+      </div>
+    </form>
+
+    <!-- Review screen (shown after the last question) -->
+    <section class="review" id="reviewScreen" hidden>
+      <h2 class="screen-title">Review your answers</h2>
+      <p class="screen-sub">Check everything looks right, then send it over.</p>
+      <dl class="summary" id="reviewSummary"></dl>
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="reviewBackBtn">Back</button>
+        <button type="button" class="btn btn-primary" id="submitBtn">Submit request</button>
+      </div>
+      <p class="field-error" id="submitError" role="alert" aria-live="assertive"></p>
+    </section>
+
+    <!-- Confirmation screen (shown after a successful submit) -->
+    <section class="done" id="doneScreen" hidden>
+      <div class="done-check" aria-hidden="true">&#10003;</div>
+      <h2 class="screen-title">Request received</h2>
+      <p class="screen-sub" id="doneMessage"></p>
+      <dl class="summary" id="doneSummary"></dl>
+      <button type="button" class="btn btn-ghost" id="restartBtn">Start another request</button>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

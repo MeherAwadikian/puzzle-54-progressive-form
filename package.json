@@ -1,0 +1,11 @@
+{
+  "name": "puzzle-54-progressive-form",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Progressive-disclosure intake form: one question at a time, validated, with back/next, preserved state and a real server-validated submit.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "deploy": "wrangler deploy"
+  }
+}

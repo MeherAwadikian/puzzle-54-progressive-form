@@ -1,0 +1,17 @@
+name = "puzzle-54-progressive-form"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Static form (public/) is served via the assets binding; the Worker handles
+# POST /api/submit and falls through to ASSETS for everything else.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Optional: bind a KV namespace to durably store submissions. Without it the
+# submit still succeeds and returns a reference (storage:"memory").
+# Create with:  npx wrangler kv namespace create INTAKE_KV
+# then uncomment and paste the id:
+# [[kv_namespaces]]
+# binding = "INTAKE_KV"
+# id = "<your-kv-namespace-id>"
